@@ -9,7 +9,7 @@ export const tweets = [
   {
     handle: "Shay_Benshabtay",
     content:
-      "T3 code is not perfect, but it's damn good. Open and fun , I can make my own fork for my uses and use the great tooling with my own needs.",
+      "OPER8 is not perfect, but it's powerful. Open and fun, I can make my own fork for my uses and use the great tooling with my own needs.",
     link: "https://x.com/Shay_Benshabtay/status/2054668503857156326",
   },
   {
@@ -21,7 +21,7 @@ export const tweets = [
   },
   {
     handle: "developedbyed",
-    content: "might say alpha but T3 code is pretty awesome, really fast too",
+    content: "OPER8 is pretty awesome, really fast too",
     link: "https://x.com/developedbyed/status/2030627970532921605",
   },
   {
@@ -40,7 +40,7 @@ export const tweets = [
   {
     handle: "BennettBuhner",
     content:
-      "OPER8 is literally Codex but better; all your favorite models and harnesses, accessible anywhere! The app is great but the website is even greater, so instead of needing to SSH into a machine, T3 IS my SSH!",
+      "OPER8 is literally Codex but better; all your favorite models and harnesses, accessible anywhere! The app is great but the website is even greater, so instead of needing to SSH into a machine, OPER8 is my SSH!",
     excerpt:
       "OPER8 is literally Codex but better; all your favorite models and harnesses, accessible anywhere.",
     link: "https://x.com/BennettBuhner/status/2054667115697754387",
@@ -53,17 +53,17 @@ export const tweets = [
   {
     handle: "Josikinz",
     content:
-      "T3 code is better because it’s like if the codex Mac app didn’t make my computer run like shit 😋",
+      "OPER8 is better because it’s like if the Codex Mac app didn’t make my computer run like shit",
     link: "https://x.com/Josikinz/status/2030367951694745870",
   },
   {
     handle: "jetpackjoe_",
-    content: "T3 code is pretty alright I guess",
+    content: "OPER8 is pretty alright I guess",
     link: "https://x.com/jetpackjoe_/status/2054666792933404959",
   },
   {
     handle: "mil000",
-    content: "T3 code saved my relationship!",
+    content: "OPER8 saved my relationship!",
     link: "https://x.com/mil000/status/2030120041451246071",
   },
   {

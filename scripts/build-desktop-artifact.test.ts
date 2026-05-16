@@ -21,9 +21,8 @@ it.layer(NodeServices.layer)("build-desktop-artifact", (it) => {
     assert.equal(resolveDesktopUpdateChannel("0.0.17"), "latest");
   });
 
-  it("switches desktop packaging product names to nightly for nightly builds", () => {
-    assert.equal(resolveDesktopProductName("0.0.17"), "OPER8 (Alpha)");
-    assert.equal(resolveDesktopProductName("0.0.17-nightly.20260413.42"), "OPER8 (Nightly)");
+  it("keeps desktop packaging product names stable across release channels", () => {
+    assert.equal(resolveDesktopProductName(), "OPER8");
   });
 
   it("switches desktop packaging icons to the nightly artwork for nightly versions", () => {

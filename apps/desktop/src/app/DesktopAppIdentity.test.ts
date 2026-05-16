@@ -118,7 +118,7 @@ const withIdentity = <A, E, R>(
         Layer.provideMerge(
           FileSystem.layerNoop({
             exists: (path) =>
-              Effect.succeed(input.legacyPathExists === true && path.includes("T3 Code (Alpha)")),
+              Effect.succeed(input.legacyPathExists === true && path.includes("oper8")),
             readFileString: () =>
               Effect.succeed(input.packageJson ?? '{"oper8CommitHash":"abcdef1234567890"}'),
           }),
@@ -138,7 +138,7 @@ describe("DesktopAppIdentity", () => {
         const identity = yield* DesktopAppIdentity.DesktopAppIdentity;
         const userDataPath = yield* identity.resolveUserDataPath;
 
-        assert.equal(userDataPath, "/Users/alice/Library/Application Support/T3 Code (Alpha)");
+        assert.equal(userDataPath, "/Users/alice/Library/Application Support/oper8");
       }),
       { legacyPathExists: true },
     ),
@@ -156,8 +156,8 @@ describe("DesktopAppIdentity", () => {
         const identity = yield* DesktopAppIdentity.DesktopAppIdentity;
         yield* identity.configure;
 
-        assert.deepEqual(calls.setName, ["OPER8 (Alpha)"]);
-        assert.equal(calls.setAboutPanelOptions[0]?.applicationName, "OPER8 (Alpha)");
+        assert.deepEqual(calls.setName, ["OPER8"]);
+        assert.equal(calls.setAboutPanelOptions[0]?.applicationName, "OPER8");
         assert.equal(calls.setAboutPanelOptions[0]?.applicationVersion, "1.2.3");
         assert.equal(calls.setAboutPanelOptions[0]?.version, "0123456789ab");
         assert.deepEqual(calls.setDockIcon, ["/icon.png"]);

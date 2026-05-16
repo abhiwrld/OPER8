@@ -553,10 +553,8 @@ export function resolveMockUpdateServerUrl(mockUpdateServerPort: number | undefi
   return `http://localhost:${mockUpdateServerPort ?? 3000}`;
 }
 
-export function resolveDesktopProductName(version: string): string {
-  return resolveDesktopUpdateChannel(version) === "nightly"
-    ? "OPER8 (Nightly)"
-    : (desktopPackageJson.productName ?? "OPER8");
+export function resolveDesktopProductName(): string {
+  return desktopPackageJson.productName ?? "OPER8";
 }
 
 const createBuildConfig = Effect.fn("createBuildConfig")(function* (
@@ -569,7 +567,7 @@ const createBuildConfig = Effect.fn("createBuildConfig")(function* (
 ) {
   const buildConfig: Record<string, unknown> = {
     appId: "com.abhiwrld.oper8",
-    productName: resolveDesktopProductName(version),
+    productName: resolveDesktopProductName(),
     artifactName: "OPER8-${version}-${arch}.${ext}",
     directories: {
       buildResources: "apps/desktop/resources",

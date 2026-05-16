@@ -22,7 +22,7 @@ describe("branding", () => {
           getAppBranding: () => ({
             baseName: "OPER8",
             stageLabel: "Nightly",
-            displayName: "OPER8 (Nightly)",
+            displayName: "OPER8",
           }),
         },
       },
@@ -32,7 +32,7 @@ describe("branding", () => {
 
     expect(branding.APP_BASE_NAME).toBe("OPER8");
     expect(branding.APP_STAGE_LABEL).toBe("Nightly");
-    expect(branding.APP_DISPLAY_NAME).toBe("OPER8 (Nightly)");
+    expect(branding.APP_DISPLAY_NAME).toBe("OPER8");
   });
 
   it("normalizes hosted app channel metadata", async () => {
@@ -43,7 +43,7 @@ describe("branding", () => {
     expect(branding.HOSTED_APP_CHANNEL).toBe("nightly");
     expect(branding.HOSTED_APP_CHANNEL_LABEL).toBe("Nightly");
     expect(branding.APP_STAGE_LABEL).toBe("Nightly");
-    expect(branding.APP_DISPLAY_NAME).toBe("OPER8 (Nightly)");
+    expect(branding.APP_DISPLAY_NAME).toBe("OPER8");
   });
 
   it("ignores unknown hosted app channels", async () => {
