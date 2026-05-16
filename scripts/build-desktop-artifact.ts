@@ -210,7 +210,7 @@ interface StagePackageJson {
   readonly name: string;
   readonly version: string;
   readonly buildVersion: string;
-  readonly t3codeCommitHash: string;
+  readonly oper8CommitHash: string;
   readonly private: true;
   readonly description: string;
   readonly author: string;
@@ -401,7 +401,7 @@ function stageMacIcons(stageResourcesDir: string, sourcePng: string, verbose: bo
     }
 
     const tmpRoot = yield* fs.makeTempDirectoryScoped({
-      prefix: "t3code-icon-build-",
+      prefix: "oper8-icon-build-",
     });
 
     const iconPngPath = path.join(stageResourcesDir, "icon.png");
@@ -555,8 +555,8 @@ export function resolveMockUpdateServerUrl(mockUpdateServerPort: number | undefi
 
 export function resolveDesktopProductName(version: string): string {
   return resolveDesktopUpdateChannel(version) === "nightly"
-    ? "T3 Code (Nightly)"
-    : (desktopPackageJson.productName ?? "T3 Code");
+    ? "OPER8 (Nightly)"
+    : (desktopPackageJson.productName ?? "OPER8");
 }
 
 const createBuildConfig = Effect.fn("createBuildConfig")(function* (
@@ -568,9 +568,9 @@ const createBuildConfig = Effect.fn("createBuildConfig")(function* (
   mockUpdateServerPort: number | undefined,
 ) {
   const buildConfig: Record<string, unknown> = {
-    appId: "com.t3tools.t3code",
+    appId: "com.abhiwrld.oper8",
     productName: resolveDesktopProductName(version),
-    artifactName: "T3-Code-${version}-${arch}.${ext}",
+    artifactName: "OPER8-${version}-${arch}.${ext}",
     directories: {
       buildResources: "apps/desktop/resources",
     },
@@ -599,12 +599,12 @@ const createBuildConfig = Effect.fn("createBuildConfig")(function* (
   if (platform === "linux") {
     buildConfig.linux = {
       target: [target],
-      executableName: "t3code",
+      executableName: "oper8",
       icon: "icon.png",
       category: "Development",
       desktop: {
         entry: {
-          StartupWMClass: "t3code",
+          StartupWMClass: "oper8",
         },
       },
     };
@@ -716,7 +716,7 @@ const buildDesktopArtifact = Effect.fn("buildDesktopArtifact")(function* (
   const commitHash = yield* resolveGitCommitHash(repoRoot);
   const mkdir = options.keepStage ? fs.makeTempDirectory : fs.makeTempDirectoryScoped;
   const stageRoot = yield* mkdir({
-    prefix: `t3code-desktop-${options.platform}-stage-`,
+    prefix: `oper8-desktop-${options.platform}-stage-`,
   });
 
   const stageAppDir = path.join(stageRoot, "app");
@@ -779,13 +779,13 @@ const buildDesktopArtifact = Effect.fn("buildDesktopArtifact")(function* (
   yield* fs.copy(stageResourcesDir, path.join(stageAppDir, "apps/desktop/prod-resources"));
 
   const stagePackageJson: StagePackageJson = {
-    name: "t3code",
+    name: "oper8",
     version: appVersion,
     buildVersion: appVersion,
-    t3codeCommitHash: commitHash,
+    oper8CommitHash: commitHash,
     private: true,
-    description: "T3 Code desktop build",
-    author: "T3 Tools",
+    description: "OPER8 desktop build",
+    author: "abhiwrld",
     main: "apps/desktop/dist-electron/main.cjs",
     build: yield* createBuildConfig(
       options.platform,
@@ -943,7 +943,7 @@ const buildDesktopArtifactCli = Command.make("build-desktop-artifact", {
     Flag.optional,
   ),
 }).pipe(
-  Command.withDescription("Build a desktop artifact for T3 Code."),
+  Command.withDescription("Build a desktop artifact for OPER8."),
   Command.withHandler((input) => Effect.flatMap(resolveBuildOptions(input), buildDesktopArtifact)),
 );
 

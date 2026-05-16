@@ -1,6 +1,6 @@
 # Observability
 
-T3 Code has one server-side observability model:
+OPER8 has one server-side observability model:
 
 - pretty logs go to stdout for humans
 - completed spans go to a local NDJSON trace file
@@ -22,7 +22,7 @@ If you want a log message to show up in the trace file, emit it inside an active
 
 ### Traces
 
-Completed spans are written as NDJSON records to `serverTracePath` (by default, `~/.t3/userdata/logs/server.trace.ndjson`).
+Completed spans are written as NDJSON records to `serverTracePath` (by default, `~/.oper8/userdata/logs/server.trace.ndjson`).
 
 Important fields in each record:
 
@@ -65,7 +65,7 @@ You do not need any extra env vars. Just run the app normally and inspect `serve
 Examples:
 
 ```bash
-npx t3
+oper8
 ```
 
 ```bash
@@ -116,7 +116,7 @@ export T3CODE_TRACE_TIMING_ENABLED=true
 CLI:
 
 ```bash
-npx t3
+oper8
 ```
 
 Monorepo web/server dev:
@@ -141,7 +141,7 @@ macOS app bundle example:
 T3CODE_OTLP_TRACES_URL=http://localhost:4318/v1/traces \
 T3CODE_OTLP_METRICS_URL=http://localhost:4318/v1/metrics \
 T3CODE_OTLP_SERVICE_NAME=t3-desktop \
-"/Applications/T3 Code.app/Contents/MacOS/T3 Code"
+"/Applications/OPER8.app/Contents/MacOS/OPER8"
 ```
 
 Direct binary example:

@@ -61,7 +61,7 @@ export const resolveNightlyReleaseMetadata = (
     baseVersion,
     version,
     tag: `v${version}`,
-    name: `T3 Code Nightly ${version} (${shortSha})`,
+    name: `OPER8 Nightly ${version} (${shortSha})`,
     shortSha,
   };
 };

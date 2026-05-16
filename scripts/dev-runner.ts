@@ -25,7 +25,7 @@ const DESKTOP_DEV_LOOPBACK_HOST = "127.0.0.1";
 const DEV_PORT_PROBE_HOSTS = ["127.0.0.1", "0.0.0.0", "::1", "::"] as const;
 
 export const DEFAULT_T3_HOME = Effect.map(Effect.service(Path.Path), (path) =>
-  path.join(NodeOS.homedir(), ".t3"),
+  path.join(NodeOS.homedir(), ".oper8"),
 );
 
 const MODE_ARGS = {
@@ -480,7 +480,7 @@ const devRunnerCli = Command.make("dev-runner", {
     Argument.withDescription("Development mode to run."),
   ),
   t3Home: Flag.string("home-dir").pipe(
-    Flag.withDescription("Base directory for all T3 Code data (equivalent to T3CODE_HOME)."),
+    Flag.withDescription("Base directory for all OPER8 data (equivalent to T3CODE_HOME)."),
     Flag.withFallbackConfig(optionalStringConfig("T3CODE_HOME")),
   ),
   noBrowser: Flag.boolean("no-browser").pipe(

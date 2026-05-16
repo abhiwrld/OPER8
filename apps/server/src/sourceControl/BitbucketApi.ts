@@ -295,7 +295,7 @@ function checkoutBranchName(input: {
     return input.headBranch;
   }
 
-  return `t3code/pr-${input.pullRequestId}/${sanitizeBranchFragment(input.headBranch)}`;
+  return `oper8/pr-${input.pullRequestId}/${sanitizeBranchFragment(input.headBranch)}`;
 }
 
 function repositoryNameWithOwner(
